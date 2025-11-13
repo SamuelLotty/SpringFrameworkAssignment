@@ -5,6 +5,7 @@ import org.example.springframeworkassignment.daos.entities.Planet;
 import org.springframework.data.repository.query.Param;
 //a
 import java.util.List;
+import java.util.Optional;
 
 public interface PlanetService
 {
@@ -14,7 +15,9 @@ public interface PlanetService
 
     void deletePlanetById(int planetID);
 
-    Planet getPlanetById(int planetID);
+    Optional<Planet> getPlanetById(int planetID);
+
+    List<Planet> getPlanetsByType(String type);
 
     List<Planet> getAllPlanets();
 

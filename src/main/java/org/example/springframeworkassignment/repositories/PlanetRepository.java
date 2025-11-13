@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-public interface PlanetRepository extends JpaRepository<Planet, Integer> {
+public interface PlanetRepository extends JpaRepository<Planet, Long> {
 
     List<Planet> findPlanetByType(String planetType);
 
@@ -28,5 +28,6 @@ public interface PlanetRepository extends JpaRepository<Planet, Integer> {
     @Transactional
     @Query("DELETE FROM Planet p where p.planetID = :planetID")
     public int deletePlanetById(@Param("planetID") int planetID);
+
 
 }
