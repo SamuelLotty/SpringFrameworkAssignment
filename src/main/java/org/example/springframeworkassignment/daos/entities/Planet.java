@@ -8,7 +8,7 @@ import lombok.*;
 @ToString
 @Setter
 public class Planet {
-    private int planetId;
+    private int planetID;
     private String planetName;
     private String planetType;
     private int radiusKM;
