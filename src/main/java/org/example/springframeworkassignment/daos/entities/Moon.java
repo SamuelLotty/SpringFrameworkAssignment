@@ -12,5 +12,5 @@ public class Moon{
     private String moonName;
     private int diamaterKM;
     private int orbitalDays;
-
+    private int planetId;
 }
