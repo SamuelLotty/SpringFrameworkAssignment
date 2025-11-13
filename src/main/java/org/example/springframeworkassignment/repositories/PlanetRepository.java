@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-public interface PlanetRepository extends JpaRepository<Planet, Long> {
+public interface PlanetRepository extends JpaRepository<Planet, Integer> {
 
     List<Planet> findPlanetByType(String planetType);
 
