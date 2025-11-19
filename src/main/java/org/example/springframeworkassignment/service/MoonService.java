@@ -10,8 +10,14 @@ public interface MoonService
 {
     Moon save (Moon moon);
     List <Moon> findAll();
-    void deletebyID(int ID) throws MoonNotFoundException;
+    void deletebyID(int ID); //throws MoonNotFoundException;
     List<Moon> findAllByPlanet(Planet planet);
     Optional<Moon> findbyID(int ID);
     int countByPlanet(Planet planet);
 }
+
+
+
+//rEPORT SHOULD REFLECT UNDERSTANDING OF SPRING
+// GEN-AI generated GOOD CODE AND PUT IT IN THE ARCHITECTURE,it followed spring best practice, included JPA practices.
+// challenge it if it does it differently, depth knoweldge of spring in the report.
