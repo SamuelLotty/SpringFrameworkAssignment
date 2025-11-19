@@ -25,7 +25,7 @@ public class Planet {
     private int massKG;
     private int orbitDay;
 
-    @OneToMany(mappedBy = "planet", cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "planet", fetch = FetchType.LAZY ,cascade=CascadeType.ALL)
     @ToString.Exclude
     private List<Moon> moon;
 }
