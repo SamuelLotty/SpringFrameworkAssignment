@@ -12,7 +12,7 @@ import lombok.*;
 public class Planet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="planetID")
+    @Column(name ="planet_id")
     private int planetID;
 
     @Column(nullable=false, unique=true)
