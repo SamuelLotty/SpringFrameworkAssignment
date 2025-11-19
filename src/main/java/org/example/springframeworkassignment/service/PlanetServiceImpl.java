@@ -39,7 +39,7 @@ public class PlanetServiceImpl implements PlanetService {
         return planetRepository.save(planet);
     }
 
-    //@Override
+    @Override
     public void deletePlanetById(int planetID) {
         int rowsDeleted = planetRepository.deletePlanetById(planetID);
         if(rowsDeleted== 0) {
