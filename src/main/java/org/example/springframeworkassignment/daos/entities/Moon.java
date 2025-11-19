@@ -1,5 +1,7 @@
 package org.example.springframeworkassignment.daos.entities;
 
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 @Data
@@ -12,5 +14,7 @@ public class Moon{
     private String moonName;
     private int diamaterKM;
     private int orbitalDays;
-    private int planetId;
+    @ManyToOne
+    @JoinColumn(name = "planet_id")
+    private Planet planet;
 }

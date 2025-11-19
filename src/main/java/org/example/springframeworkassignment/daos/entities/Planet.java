@@ -23,4 +23,8 @@ public class Planet {
     private int radiusKM;
     private int massKG;
     private int orbitDays;
+    //List of moons
+    //@OneToMany
+    //@JoinColumn(name = "moon_id")
+    //private Moon moon;
 }
