@@ -2,13 +2,14 @@ package org.example.springframeworkassignment.daos.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
+
 @Entity
-@Table(name="planet")
+@Table(name="Planet")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@Setter
 public class Planet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,9 +23,8 @@ public class Planet {
 
     private int radiusKM;
     private int massKG;
-    private int orbitDays;
-    //List of moons
-    //@OneToMany
-    //@JoinColumn(name = "moon_id")
-    //private Moon moon;
+    private int orbitDay;
+
+    @OneToMany(mappedBy = "planet", cascade=CascadeType.ALL)
+    private List<Moon> moon;
 }
