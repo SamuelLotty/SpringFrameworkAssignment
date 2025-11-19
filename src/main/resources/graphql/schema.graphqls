@@ -1,5 +1,6 @@
 type Query {
     userById(userID: Int!): MyUser
+    allUsers: [MyUser]
 }
 
 type MyUser {
