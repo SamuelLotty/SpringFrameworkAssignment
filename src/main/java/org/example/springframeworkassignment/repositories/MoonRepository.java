@@ -11,8 +11,5 @@ import java.util.Optional;
 
 @Repository
 public interface MoonRepository extends JpaRepository<Moon, Integer>{
-    List<Moon> findMoonByPlanet(Planet planet);
-    Optional<Moon> findMoonById(int moonID);
-    int deleteMoonById(int moonID);
-    int countbyPlanet(Planet planet);
+
 }
