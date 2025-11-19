@@ -7,13 +7,13 @@ CREATE TABLE Planet (
     orbital_period_days INT
     );
 
--- CREATE TABLE User(
---                      user_id INT PRIMARY KEY AUTO_INCREMENT,
---                      username VARCHAR(50) UNIQUE,
---                      password VARCHAR (50), /* Hashed*/
---                      role VARCHAR(20),
---                      enabled BIT DEFAULT FALSE /* Boolean = BIT */
--- );
+CREATE TABLE User(
+                     user_id INT PRIMARY KEY AUTO_INCREMENT,
+                     username VARCHAR(50) UNIQUE NOT NULL,
+                     password VARCHAR (50) NOT NULL,
+                     role VARCHAR(20) NOT NULL,
+                     enabled BIT DEFAULT 0
+);
 
 CREATE TABLE Moon(
                      moon_id INT PRIMARY KEY AUTO_INCREMENT,
