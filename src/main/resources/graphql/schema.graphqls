@@ -1,0 +1,11 @@
+type Query {
+    userById(userID: Int!): MyUser
+}
+
+type MyUser {
+    userID: Int
+    firstName: String
+    password: String
+    role: String
+    enabled: Boolean
+}
