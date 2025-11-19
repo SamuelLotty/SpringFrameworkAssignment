@@ -9,6 +9,7 @@ public record MoonDTO(
         int diameterKM,
         int orbitalDays,
         PlanetDTO planet
+
 ) {
 }
 
