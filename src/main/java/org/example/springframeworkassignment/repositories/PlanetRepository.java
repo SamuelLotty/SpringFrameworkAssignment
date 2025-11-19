@@ -23,11 +23,9 @@ public interface PlanetRepository extends JpaRepository<Planet, Integer> {
     @Query("Select p.planetName, p.massKG FROM Planet p")
     List<Object[]> findPlanetNameAndMass();
 
-
     @Modifying
     @Transactional
     @Query("DELETE FROM Planet p where p.planetID = :planetID")
     public int deletePlanetById(@Param("planetID") int planetID);
-
 
 }
