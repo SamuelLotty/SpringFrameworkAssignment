@@ -17,13 +17,17 @@ public class Planet {
     @Column(name ="planet_id")
     private int planetID;
 
-    @Column(nullable=false, unique=true)
+    @Column(name ="name",nullable=false, unique=true)
     private String planetName;
+    @Column(name ="type")
     private String planetType;
-
+    @Column(name = "radius_km")
     private int radiusKM;
+
+    @Column(name = "mass_kg")
     private int massKG;
-    private int orbitDay;
+    @Column(name = "orbital_period_days")
+    private int orbitalPeriodDays;
 
     @OneToMany(mappedBy = "planet", fetch = FetchType.LAZY ,cascade=CascadeType.ALL)
     @ToString.Exclude

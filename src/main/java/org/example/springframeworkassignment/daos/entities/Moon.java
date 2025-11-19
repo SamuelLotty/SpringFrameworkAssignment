@@ -14,12 +14,15 @@ public class Moon{
     @Column(name ="moon_id")
     private int moonId;
 
-    @Column(nullable=false, unique=true)
+    @Column(name="name",nullable=false, unique=true)
     private String moonName;
-    private int diamaterKM;
-    private int orbitalDays;
+    @Column(name ="diameter_km")
+    private int diameterKM;
+    @Column(name ="orbital_period_days")
+    private int orbitalPeriodDays;
 
-    @ManyToOne
-    @JoinColumn(name = "planet_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "planet_id", nullable = false)
+    @ToString.Exclude
     private Planet planet;
 }
