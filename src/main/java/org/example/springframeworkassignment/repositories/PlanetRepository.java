@@ -18,7 +18,7 @@ import java.util.function.Function;
 
 public interface PlanetRepository extends JpaRepository<Planet, Integer> {
 
-    List<Planet> findPlanetByType(String planetType);
+    List<Planet> findPlanetByPlanetType(String planetType);
 
     @Query("Select p.planetName, p.massKG FROM Planet p")
     List<Object[]> findPlanetNameAndMass();
@@ -26,6 +26,6 @@ public interface PlanetRepository extends JpaRepository<Planet, Integer> {
     @Modifying
     @Transactional
     @Query("DELETE FROM Planet p where p.planetID = :planetID")
-    public int deletePlanetById(@Param("planetID") int planetID);
+    int deletePlanetById(@Param("planetID") int planetID);
 
 }

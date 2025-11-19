@@ -1,8 +1,8 @@
 package org.example.springframeworkassignment.service;
 
-import lombok.AllArgsConstructor;
 import org.example.springframeworkassignment.daos.entities.Planet;
 import org.example.springframeworkassignment.repositories.PlanetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,20 +12,31 @@ import java.util.Optional;
 
 
 @Service
-@AllArgsConstructor
-public class PlanetServiceImpl implements PlanetService{
+public class PlanetServiceImpl implements PlanetService {
 
+    @Autowired
     private PlanetRepository planetRepository;
 
 
     @Override
-    public Planet createPlanet(Planet planet) {
+    public Planet AddNewPlanet(Planet planet) {
         return planetRepository.save(planet);
     }
 
     @Override
+    public List<Planet> getAllPlanets() {
+        return planetRepository.findAll();
+    }
+
+    @Override
+    public Optional<Planet> getPlanetById(int planetID) {
+        return planetRepository.findById(planetID);
+    }
+
+
+    @Override
     public Planet updatePlanet(Planet planet) {
-        return (Planet) planetRepository.findAll();
+        return planetRepository.save(planet);
     }
 
     //@Override
@@ -37,18 +48,16 @@ public class PlanetServiceImpl implements PlanetService{
     }
 
     @Override
-    public Optional<Planet> getPlanetById(int planetID) {
-        return planetRepository.findById(planetID);
-    }
-
-    @Override
     public List<Planet> getPlanetsByType(String type) {
-        return planetRepository.findPlanetByType(type);
+        return planetRepository.findPlanetByPlanetType(type);
     }
 
+
     @Override
-    public List<Planet> getAllPlanets() {
-        return planetRepository.findAll();
+    public List<Planet> getPlanetNameAndMass(String type) {
+        return null;
     }
+
+
 
 }

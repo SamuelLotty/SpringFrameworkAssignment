@@ -2,6 +2,7 @@ package org.example.springframeworkassignment.daos.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.boot.jackson.JsonComponent;
 
 import java.util.List;
 
@@ -18,7 +19,6 @@ public class Planet {
 
     @Column(nullable=false, unique=true)
     private String planetName;
-
     private String planetType;
 
     private int radiusKM;
@@ -26,5 +26,6 @@ public class Planet {
     private int orbitDay;
 
     @OneToMany(mappedBy = "planet", cascade=CascadeType.ALL)
+    @ToString.Exclude
     private List<Moon> moon;
 }
