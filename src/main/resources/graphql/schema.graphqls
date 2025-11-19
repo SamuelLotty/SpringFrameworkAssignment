@@ -9,3 +9,15 @@ type MyUser {
     role: String
     enabled: Boolean
 }
+
+input NewUserInput {
+    firstName: String!
+    password: String!
+    role: String!
+    enabled: Boolean!
+
+}
+
+type Mutation{
+       createUser(newUser: NewUserInput!): MyUser
+}
