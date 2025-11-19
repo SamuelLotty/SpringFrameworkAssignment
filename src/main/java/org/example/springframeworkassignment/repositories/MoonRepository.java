@@ -16,20 +16,17 @@ import java.util.Optional;
 @Repository
 public interface MoonRepository extends JpaRepository<Moon, Integer>{
 
-    //Delete moons by ID
     @Modifying
     @Transactional
     @Query("DELETE FROM Moon m WHERE m.moonId = :id")
     int deleteMoonById(@Param("id")int moonId);
 
-    // Retrieve a list of all moons
     List <Moon> findAll();
 
-    //Retrieve a list of moons by ID
     Optional<Moon> findById(@Param("id")int id);
 
-    //Count number of moons by planet
     List<Moon> findAllByPlanet(Planet planet);
+
     int countByPlanet(Planet planet);
 
 }
