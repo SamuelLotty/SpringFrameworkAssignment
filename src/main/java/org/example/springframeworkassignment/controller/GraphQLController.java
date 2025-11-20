@@ -5,8 +5,6 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.example.springframeworkassignment.dto.NewUserDTO;
 import org.example.springframeworkassignment.dto.UserDTO;
-import org.example.springframeworkassignment.service.MoonService;
-import org.example.springframeworkassignment.service.PlanetService;
 import org.example.springframeworkassignment.service.UserService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
