@@ -37,8 +37,8 @@ public class MoonServiceImpl implements MoonService {
 
     @Override
     public List<Moon> findAllByPlanet(Planet planet) {
-        return moonRepository.findAllByPlanet(planet); //should this be by planetid?
-                                                        //Stan: No this is okey, we are passing in
+        return moonRepository.findAllByPlanet(planet);
+
                                                         // Entire object of planet anyway, JPA will get the id
 
     }
