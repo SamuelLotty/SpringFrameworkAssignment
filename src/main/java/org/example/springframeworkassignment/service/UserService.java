@@ -1,8 +1,6 @@
 package org.example.springframeworkassignment.service;
 
 import org.example.springframeworkassignment.dto.UserDTO;
-import org.springframework.stereotype.Service;
-
 
 public interface UserService {
 
