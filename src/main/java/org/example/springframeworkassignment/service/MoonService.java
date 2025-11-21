@@ -21,8 +21,6 @@ public interface MoonService
     int countByPlanet(Planet planet);
 }
 
-
-
 // REPORT SHOULD REFLECT UNDERSTANDING OF SPRING
 // GEN-AI generated GOOD CODE AND PUT IT IN THE ARCHITECTURE,it followed spring best practice, included JPA practices.
 // challenge it if it does it differently, depth knoweldge of spring in the report.
