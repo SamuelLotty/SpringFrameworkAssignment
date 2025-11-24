@@ -2,6 +2,7 @@ package org.example.springframeworkassignment.controller;
 
 
 import lombok.AllArgsConstructor;
+import org.example.springframeworkassignment.daos.entities.Moon;
 import org.example.springframeworkassignment.daos.entities.Planet;
 import org.example.springframeworkassignment.service.MoonService;
 import org.example.springframeworkassignment.service.PlanetService;
@@ -18,10 +19,16 @@ import java.util.List;
 public class RestService {
     private MoonService moonService;
     private PlanetService planetService;
+    //Ask about Headers = and path =
 
     @GetMapping(headers = "/", path = "")
     public List<Planet> getAllPlanets() {
         return planetService.getAllPlanets();
+    }
+
+    @GetMapping(path = "/", headers = "")
+    public List<Moon> findAll(){
+        return  moonService.findAll();
     }
 
 
