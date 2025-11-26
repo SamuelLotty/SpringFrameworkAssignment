@@ -9,7 +9,6 @@ import org.example.springframeworkassignment.dto.PlanetDTO;
 import org.example.springframeworkassignment.exceptions.NotFoundException;
 import org.example.springframeworkassignment.service.MoonService;
 import org.example.springframeworkassignment.service.PlanetService;
-import org.example.springframeworkassignment.service.PlanetServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,13 +25,13 @@ public class RestService {
 
     //Ask about Headers = and path =
 
-    @GetMapping(path ="/planet/")
+    @GetMapping("/planets")
     public List<PlanetDTO> getAllPlanets() {
         return planetService.getAllPlanets();
     }
 
-    @GetMapping(path = "/moon/")
-    public List<MoonDTO> findAll(){
+    @GetMapping("/moons")
+    public List<MoonDTO> getAllMoons(){
         return  moonService.findAllMoons();
     }
 
@@ -41,15 +40,15 @@ public class RestService {
         return planetService.getPlanetById(id);
     }
 
-    @GetMapping("/moon/{id}")
+    @GetMapping("/moons/moon/{id}")
     public Optional<Moon> findMoonId(@PathVariable("id") int id){
         return moonService.findById(id);
     }
 
-    @DeleteMapping({"/deletePlanet/{id}"})
+    @DeleteMapping({"/deletePlanet/planet/{id}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePlanet(@PathVariable("id") int id) throws NotFoundException
     {
-        //PlanetService.deletePlanetById(id);
+        PlanetService.deletePlanetById(id);
     }
 }
