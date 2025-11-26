@@ -4,6 +4,8 @@ package org.example.springframeworkassignment.controller;
 import lombok.AllArgsConstructor;
 import org.example.springframeworkassignment.daos.entities.Moon;
 import org.example.springframeworkassignment.daos.entities.Planet;
+import org.example.springframeworkassignment.dto.MoonDTO;
+import org.example.springframeworkassignment.dto.PlanetDTO;
 import org.example.springframeworkassignment.exceptions.NotFoundException;
 import org.example.springframeworkassignment.service.MoonService;
 import org.example.springframeworkassignment.service.PlanetService;
@@ -25,13 +27,13 @@ public class RestService {
     //Ask about Headers = and path =
 
     @GetMapping(headers = "/", path = "")
-    public List<Planet> getAllPlanets() {
+    public List<PlanetDTO> getAllPlanets() {
         return planetService.getAllPlanets();
     }
 
     @GetMapping(path = "/", headers = "")
-    public List<Moon> findAll(){
-        return  moonService.findAll();
+    public List<MoonDTO> findAll(){
+        return  moonService.findAllMoons();
     }
 
     @GetMapping("/{id}")
