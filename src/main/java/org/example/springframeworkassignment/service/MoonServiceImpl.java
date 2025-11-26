@@ -6,6 +6,7 @@ import org.example.springframeworkassignment.daos.entities.Planet;
 import org.example.springframeworkassignment.dto.Mappers;
 import org.example.springframeworkassignment.dto.MoonDTO;
 import org.example.springframeworkassignment.repositories.MoonRepository;
+import org.example.springframeworkassignment.repositories.PlanetRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -17,6 +18,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class MoonServiceImpl implements MoonService {
 
+    private final PlanetRepository planetRepository;
     private MoonRepository moonRepository;
 
     @Override
@@ -42,8 +44,9 @@ public class MoonServiceImpl implements MoonService {
     }
 
     @Override
-    public List<Moon> findAllByPlanet(Planet planet) {
-        return moonRepository.findAllByPlanet(planet);
+    public List<MoonDTO> findAllByPlanet(int planetId) {
+        Planet planet = planetRepository.findById(planetId);
+        return moonRepository.findAllByPlanet(planetId);
                                                         // Entire object of planet anyway, JPA will get the id
 
     }

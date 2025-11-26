@@ -15,7 +15,7 @@ public  interface PlanetService
 
     Optional<Planet> getPlanetById(int planetID);
 
-    Planet updatePlanet(Planet planet);
+    PlanetDTO updatePlanet(PlanetDTO planetDTO);
 
     void deletePlanetById(int planetID);
 

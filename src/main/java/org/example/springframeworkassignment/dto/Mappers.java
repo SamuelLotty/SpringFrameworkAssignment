@@ -35,8 +35,18 @@ public class Mappers {
                 planet.getOrbitalPeriodDays(),
                 moonDTOS
 
-
         );
+
+    }
+    public static Planet mapPlanetDTOToPlanet(PlanetDTO dto) {
+        Planet planet = new Planet();
+        planet.setPlanetID(dto.planetID());
+        planet.setPlanetName(dto.planetName());
+        planet.setPlanetType(dto.planetType());
+        planet.setRadiusKM(dto.radiusKM());
+        planet.setMassKG(dto.massKG());
+        planet.setOrbitalPeriodDays(dto.orbitDay());
+        return planet;
     }
 
 

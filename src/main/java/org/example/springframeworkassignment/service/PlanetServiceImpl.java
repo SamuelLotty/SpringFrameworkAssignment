@@ -42,8 +42,10 @@ public class PlanetServiceImpl implements PlanetService {
 
 
     @Override
-    public Planet updatePlanet(Planet planet) {
-        return planetRepository.save(planet);
+    public PlanetDTO updatePlanet(PlanetDTO planetDTO) {
+        Planet planet = Mappers.mapPlanetDTOToPlanet(planetDTO);
+        Planet saved =  planetRepository.save(planet);
+        return Mappers.mapPlanetToPlanetDTO(saved);
     }
 
     @Override
