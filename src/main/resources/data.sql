@@ -12,7 +12,7 @@ INSERT INTO Planet (name, type, radius_km, mass_kg, orbital_period_days) VALUES
 -- Populate User table
 INSERT INTO MyUser (username, password, role, enabled) VALUES
                                                          ('stan', 'stanPass', 'admin', 1),
-                                                         ('bob', 'bobPass', 'moderator', 1),
+                                                         ('bob', 'bobPass', 'user', 0),
                                                          ('kevin', 'kevinPass', 'user', 0),
                                                          ('alex', 'alexPass', 'user', 0);
 

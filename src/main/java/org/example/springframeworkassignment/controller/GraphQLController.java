@@ -22,7 +22,7 @@ public class GraphQLController {
 
     @QueryMapping
     public UserDTO getUserById(@Argument int id) {
-        return userService.userFindById(id);
+        return userService.getUserById(id);
     }
 
     @MutationMapping
