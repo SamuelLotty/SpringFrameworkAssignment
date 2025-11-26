@@ -55,13 +55,13 @@ public class PlanetServiceImpl implements PlanetService {
     }
 
     @Override
-    public List<Planet> getPlanetsByType(String type) {
+    public List<PlanetDTO> getPlanetsByType(String type) {
         return planetRepository.findPlanetByPlanetType(type);
     }
 
 
     @Override
-    public List<Planet> getPlanetNameAndMass(String type) {
+    public List<PlanetDTO> getPlanetNameAndMass(String type) {
         return null;
     }
 

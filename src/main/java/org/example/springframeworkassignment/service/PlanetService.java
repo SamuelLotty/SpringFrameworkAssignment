@@ -19,7 +19,7 @@ public  interface PlanetService
 
     void deletePlanetById(int planetID);
 
-    List<Planet> getPlanetsByType(String type);
+    List<PlanetDTO> getPlanetsByType(String type);
 
-    List<Planet> getPlanetNameAndMass(String type);
+    List<PlanetDTO> getPlanetNameAndMass(String type);
 }

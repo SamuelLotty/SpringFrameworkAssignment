@@ -60,21 +60,23 @@ public class RestService {
         moonService.deleteById(id);
     }
 
-/*    @Operation(summary = "Update details of planet",description = "Updates details of a specific planet based on ID")
+/*
+    @Operation(summary = "Update details of planet",description = "Updates details of a specific planet based on ID")
     @PatchMapping({"/planet/{id}"})
     public void updatePlanet(@RequestBody PlanetDTO planetDTO) {
        planetService.updatePlanet(planetDTO);
     }
+*/
 
-    @Operation(summary = "List moons by planet",description = "List the moons for each planet based on ID")
+/*    @Operation(summary = "List moons by planet",description = "List the moons for each planet based on ID")
     @GetMapping("/planet/moons/")
     public List<MoonDTO> getMoonsByPlanet(@RequestParam("id") int id){
-        return moonService.findAllByPlanet();
-    }
+        return moonService.findAllByPlanet(id);
+    }*/
 
     @Operation(summary = "Retrieve planets based on type",description = "Retrieve planets based on what type of planet they are")
     @GetMapping("/planet/")
     public List<PlanetDTO> getPlanetsByType(@RequestParam("type") String type){
-
-    }*/
+        return planetService.getPlanetsByType(type);
+    }
 }

@@ -12,7 +12,7 @@ public interface MoonService
     Moon save (Moon moon);
     List<MoonDTO> findAllMoons();
     void deleteById(int moonId);
-    List<Moon> findAllByPlanet(Planet planet);
+    List<Moon> findAllByPlanet(Planet planetId);
     Optional<Moon> findById(int moonId);
     int countByPlanet(Planet planet);
 }

@@ -1,6 +1,7 @@
 package org.example.springframeworkassignment.repositories;
 
 import org.example.springframeworkassignment.daos.entities.Planet;
+import org.example.springframeworkassignment.dto.PlanetDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -13,7 +14,7 @@ import java.util.List;
 @Repository
 public interface PlanetRepository extends JpaRepository<Planet, Integer> {
 
-    List<Planet> findPlanetByPlanetType(String planetType);
+    List<PlanetDTO> findPlanetByPlanetType(String planetType);
 
     @Query("Select p.planetName, p.massKG FROM Planet p")
     List<Object[]> findPlanetNameAndMass();
