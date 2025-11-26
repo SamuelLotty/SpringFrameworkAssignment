@@ -2,6 +2,7 @@ package org.example.springframeworkassignment.service;
 
 import org.example.springframeworkassignment.daos.entities.Moon;
 import org.example.springframeworkassignment.daos.entities.Planet;
+import org.example.springframeworkassignment.dto.MoonDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +11,7 @@ public interface MoonService
 {
     Moon save (Moon moon);
 
-    List <Moon> findAll();
+    List<MoonDTO> findAllMoons();
 
     void deletebyID(int moonId);
     //throws MoonNotFoundException;

@@ -1,6 +1,9 @@
 package org.example.springframeworkassignment.service;
 
+import lombok.AllArgsConstructor;
 import org.example.springframeworkassignment.daos.entities.Planet;
+import org.example.springframeworkassignment.dto.Mappers;
+import org.example.springframeworkassignment.dto.PlanetDTO;
 import org.example.springframeworkassignment.repositories.PlanetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +15,7 @@ import java.util.Optional;
 
 
 @Service
+@AllArgsConstructor
 public class PlanetServiceImpl implements PlanetService {
 
     @Autowired
@@ -24,8 +28,11 @@ public class PlanetServiceImpl implements PlanetService {
     }
 
     @Override
-    public List<Planet> getAllPlanets() {
-        return planetRepository.findAll();
+    public List<PlanetDTO> getAllPlanets() {
+        return planetRepository.findAll()
+                .stream()
+                .map(Mappers::mapPlanetToPlanetDTO)
+                .toList();
     }
 
     @Override

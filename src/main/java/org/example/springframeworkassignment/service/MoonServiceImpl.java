@@ -3,6 +3,8 @@ package org.example.springframeworkassignment.service;
 import lombok.AllArgsConstructor;
 import org.example.springframeworkassignment.daos.entities.Moon;
 import org.example.springframeworkassignment.daos.entities.Planet;
+import org.example.springframeworkassignment.dto.Mappers;
+import org.example.springframeworkassignment.dto.MoonDTO;
 import org.example.springframeworkassignment.repositories.MoonRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -23,8 +25,12 @@ public class MoonServiceImpl implements MoonService {
     }
 
     @Override
-    public List<Moon> findAll() {
-    return  moonRepository.findAll();
+    public List<MoonDTO> findAllMoons() {
+
+        return  moonRepository.findAll()
+                .stream()
+                .map(Mappers::mapMoonToMoonDTO)
+                .toList();
     }
 
     @Override
