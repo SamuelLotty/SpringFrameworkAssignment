@@ -11,6 +11,7 @@ import org.example.springframeworkassignment.exceptions.NotFoundException;
 import org.example.springframeworkassignment.service.MoonService;
 import org.example.springframeworkassignment.service.PlanetService;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,29 +32,30 @@ public class RestService {
         return planetService.getAllPlanets();
     }
     @Operation(summary = "List of all moons",description = "Retrieve a list of all moons within the database")
-    @GetMapping("/moons")
+    @GetMapping("/moons/")
     public List<MoonDTO> getAllMoons(){
         return  moonService.findAllMoons();
     }
     @Operation(summary = "Find a planet by Id", description = "Retrieve a list of planets based on the ID")
     @GetMapping("/planet/{id}")
+
     public Optional<Planet> findPlanetId(@PathVariable("id") int id){
         return planetService.getPlanetById(id);
     }
     @Operation(summary = "Find a moon by Id",description = "Retrieve a list of moons based on the ID")
-    @GetMapping("/moons/moon/{id}")
-    public Optional<Moon> findMoonId(@PathVariable("id") int id){
+    @GetMapping("/moons/{id}")
+    public MoonDTO findMoonId(@PathVariable("id") int id){
         return moonService.findById(id);
     }
     @Operation(summary = "Delete planet by ID", description = "Deletes a planet based on the ID")
-    @DeleteMapping({"/deletePlanet/planet/{id}"})
+    @DeleteMapping({"/planets/{id}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePlanet(@PathVariable("id") int id) throws NotFoundException
     {
         planetService.deletePlanetById(id);
     }
     @Operation(summary = "Delete moon by ID", description = "Deletes a planet based on the ID")
-    @DeleteMapping({"/deleteMoon/moons/{id}"})
+    @DeleteMapping({"/moons/{id}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteMoon(@PathVariable("id") int id) throws NotFoundException
     {

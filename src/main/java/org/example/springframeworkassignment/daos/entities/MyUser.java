@@ -5,16 +5,12 @@ import lombok .*;
 
 @Data
 @Entity
-@Table(name="MyUser")
 @NoArgsConstructor
 @AllArgsConstructor
 public class MyUser {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="user_id")
-    private int userID;
 
+    @Id
     @Column(name="username",nullable=false)
     private String username;
     @Column(nullable=false)

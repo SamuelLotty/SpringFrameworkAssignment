@@ -14,7 +14,16 @@ public class Mappers {
                 moon.getMoonName(),
                 moon.getDiameterKM(),
                 moon.getOrbitalPeriodDays(),
-                mapPlanetToPlanetDTO(moon.getPlanet())
+                new PlanetDTO(
+                        moon.getPlanet().getPlanetID(),
+                        moon.getPlanet().getPlanetName(),
+                        moon.getPlanet().getPlanetType(),
+                        moon.getPlanet().getRadiusKM(),
+                        moon.getPlanet().getMassKG(),
+                        moon.getPlanet().getOrbitalPeriodDays(),
+                        null
+                )
+                //mapPlanetToPlanetDTO(moon.getPlanet())
 
         );
 
@@ -51,7 +60,6 @@ public class Mappers {
     }
     public static UserDTO mapUserToUserDTO(MyUser user) {
         return new UserDTO(
-                user.getUserID(),
                 user.getUsername(),
                 user.getPassword(),
                 user.getRole(),

@@ -23,15 +23,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-
         http.authorizeHttpRequests( auth -> auth
                 .requestMatchers("/v3/api-docs/**","/swagger-ui/**","/swagger-ui.html", "/graphql/**").permitAll()
                 .requestMatchers(PathRequest.toH2Console()).permitAll()
-                .requestMatchers(HttpMethod.GET).permitAll()
-                .requestMatchers(HttpMethod.POST).hasAnyRole("admin", "user")
-                .requestMatchers(HttpMethod.PUT).hasAuthority("admin")
-                .requestMatchers(HttpMethod.DELETE).hasRole("admin")
-                .anyRequest().authenticated()
+//                .requestMatchers(HttpMethod.GET).permitAll()
+//                .requestMatchers(HttpMethod.POST).hasAnyRole("ADMIN", "USER")
+//                .requestMatchers(HttpMethod.PUT).hasRole("ADMIN")
+//                .requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
+                .anyRequest().permitAll()
 
         );
 
@@ -50,11 +49,11 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    UserDetailsService userDetailsService() {
-        UserDetails admin = User.withUsername("admin").password(passwordEncoder().encode("admin")).roles("ADMIN").build();
-        UserDetails user  =  User.withUsername("user").password(passwordEncoder().encode("user")).roles("USER").build();
-        return new InMemoryUserDetailsManager(admin, user);
-    }
+//    @Bean
+//    UserDetailsService userDetailsService() {
+//        UserDetails admin = User.withUsername("admin").password(passwordEncoder().encode("admin")).roles("ROLE_ADMIN").build();
+//        UserDetails user  =  User.withUsername("user").password(passwordEncoder().encode("user")).roles("ROLE_USER").build();
+//        return new InMemoryUserDetailsManager(admin, user);
+//    }
 }
 

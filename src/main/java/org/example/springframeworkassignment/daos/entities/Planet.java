@@ -1,5 +1,6 @@
 package org.example.springframeworkassignment.daos.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.boot.jackson.JsonComponent;
@@ -31,5 +32,6 @@ public class Planet {
 
     @OneToMany(mappedBy = "planet", fetch = FetchType.LAZY ,cascade=CascadeType.ALL)
     @ToString.Exclude
+    @JsonIgnoreProperties("planet")
     private List<Moon> moon;
 }

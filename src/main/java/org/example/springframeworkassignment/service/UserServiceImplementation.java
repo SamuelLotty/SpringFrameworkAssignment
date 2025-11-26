@@ -25,17 +25,18 @@ public class UserServiceImplementation implements UserService {
 
 
     @Override
-    public UserDTO getUserById(int id) {
+    public UserDTO getUserById(String id) {
         return Mappers.mapUserToUserDTO(userRepository.findById(id).orElseThrow(()->new NotFoundException("User not found")));
     }
 
     @Override
     public UserDTO getUserByName(String username) {
-        return Mappers.mapUserToUserDTO(userRepository.findByUsername(username).orElseThrow(()->new NotFoundException("User not found")));
+        return Mappers.mapUserToUserDTO(userRepository.findById(username).orElseThrow(()->new NotFoundException("User not found")));
     }
 
     @Override
     public UserDTO createUser(String username, String password, String role) {
+        //TODO
         return null;
     }
 }

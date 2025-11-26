@@ -21,7 +21,7 @@ public class GraphQLController {
     private final UserService userService;
 
     @QueryMapping
-    public UserDTO getUserById(@Argument int id) {
+    public UserDTO getUserById(@Argument String id) {
         return userService.getUserById(id);
     }
 

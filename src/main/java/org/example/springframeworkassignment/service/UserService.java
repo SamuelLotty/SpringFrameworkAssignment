@@ -4,7 +4,7 @@ import org.example.springframeworkassignment.dto.UserDTO;
 
 public interface UserService {
 
-    UserDTO getUserById(int id);
+    UserDTO getUserById(String id);
 
     UserDTO getUserByName(String username);
 

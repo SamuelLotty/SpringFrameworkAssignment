@@ -1,5 +1,7 @@
 package org.example.springframeworkassignment.daos.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
@@ -21,7 +23,7 @@ public class Moon{
     @Column(name ="orbital_period_days")
     private int orbitalPeriodDays;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "planet_id", nullable = false)
     @ToString.Exclude
     private Planet planet;

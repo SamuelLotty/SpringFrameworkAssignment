@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,8 +52,12 @@ public class MoonServiceImpl implements MoonService {
     }
 
     @Override
-    public Optional<Moon> findById(int id) {
-        return moonRepository.findById(id);
+    public MoonDTO findById(int id) {
+        Optional<Moon> moon = moonRepository.findById(id);
+        if(moon.isPresent()){
+            return Mappers.mapMoonToMoonDTO(moon.get());
+        }
+        else throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Moon with id" + id + "not found!");
     }
 
     @Override
