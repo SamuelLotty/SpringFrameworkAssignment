@@ -34,7 +34,7 @@ public class MoonServiceImpl implements MoonService {
     }
 
     @Override
-    public void deletebyID(int moonId) {
+    public void deleteById(int moonId) {
     int rowsDeleted = moonRepository.deleteMoonById(moonId);
     if(rowsDeleted > 0){
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Moon with id" + moonId + "not found!");

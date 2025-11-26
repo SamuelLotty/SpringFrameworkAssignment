@@ -10,15 +10,10 @@ import java.util.Optional;
 public interface MoonService
 {
     Moon save (Moon moon);
-
     List<MoonDTO> findAllMoons();
-
-    void deletebyID(int moonId);
-    //throws MoonNotFoundException;
+    void deleteById(int moonId);
     List<Moon> findAllByPlanet(Planet planet);
-
     Optional<Moon> findById(int moonId);
-
     int countByPlanet(Planet planet);
 }
 
