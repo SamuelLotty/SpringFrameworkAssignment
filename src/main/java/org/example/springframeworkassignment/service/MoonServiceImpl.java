@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,10 +46,10 @@ public class MoonServiceImpl implements MoonService {
 
     @Override
     public List<MoonDTO> findAllByPlanet(int planetId) {
-        Planet planet = planetRepository.findById(planetId);
-        return moonRepository.findAllByPlanet(planetId);
-                                                        // Entire object of planet anyway, JPA will get the id
 
+        return moonRepository.findAllByPlanet_PlanetID(planetId).stream().map(Mappers::mapMoonToMoonDTO).toList();
+
+        // Entire object of planet anyway, JPA will get the id
     }
 
     @Override

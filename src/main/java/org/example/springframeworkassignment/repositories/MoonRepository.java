@@ -18,13 +18,9 @@ public interface MoonRepository extends JpaRepository<Moon, Integer>{
     @Transactional
     @Query("DELETE FROM Moon m WHERE m.moonId = :id")
     int deleteMoonById(@Param("id")int moonId);
-
     List <Moon> findAll();
-
     Optional<Moon> findById(@Param("id")int id);
-
-    List<Moon> findAllByPlanet(Planet planet);
-
+    List<Moon> findAllByPlanet_PlanetID(int planetId);
     int countByPlanet(Planet planet);
 
 }
