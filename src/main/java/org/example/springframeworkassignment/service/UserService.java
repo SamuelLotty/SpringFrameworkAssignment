@@ -6,6 +6,8 @@ public interface UserService {
 
     UserDTO getUserById(int id);
 
+    UserDTO getUserByName(String username);
+
     UserDTO createUser (String username, String password, String role);
 }
 
