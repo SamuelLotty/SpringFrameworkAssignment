@@ -58,7 +58,7 @@ public class PlanetServiceImpl implements PlanetService {
 
     @Override
     public List<PlanetDTO> getPlanetsByType(String type) {
-        return planetRepository.findPlanetByPlanetType(type);
+        return planetRepository.findPlanetByPlanetType(type).stream().map(Mappers::mapPlanetToPlanetDTO).toList();
     }
 
 

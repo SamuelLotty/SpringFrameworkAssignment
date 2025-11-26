@@ -46,7 +46,7 @@ public class Mappers {
         planet.setPlanetType(dto.planetType());
         planet.setRadiusKM(dto.radiusKM());
         planet.setMassKG(dto.massKG());
-        planet.setOrbitalPeriodDays(dto.orbitDay());
+        planet.setOrbitalPeriodDays(dto.orbitalPeriodDays());
         return planet;
     }
     public static UserDTO mapUserToUserDTO(MyUser user) {

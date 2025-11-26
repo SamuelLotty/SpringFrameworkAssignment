@@ -8,7 +8,7 @@ public record PlanetDTO (
         String planetType,
         int radiusKM,
         int massKG,
-        int orbitDay,
+        int orbitalPeriodDays,
         List<MoonDTO> moon
 
 ){};

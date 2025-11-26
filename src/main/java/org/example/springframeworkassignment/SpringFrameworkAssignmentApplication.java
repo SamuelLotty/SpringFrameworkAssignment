@@ -23,8 +23,8 @@ public class SpringFrameworkAssignmentApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        planetService.getAllPlanets().forEach(System.out::println);
-        moonService.findAll().forEach(System.out::println);
+//        planetService.getAllPlanets().forEach(System.out::println);
+//        moonService.findAll().forEach(System.out::println);
 
     }
 }
