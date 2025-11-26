@@ -16,7 +16,7 @@ public class MyUser {
     private int userID;
 
     @Column(name="username",nullable=false)
-    private String firstName;
+    private String username;
     @Column(nullable=false)
     private String password; //I've to hash this for security.
     @Column(nullable=false)

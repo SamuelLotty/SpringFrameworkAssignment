@@ -52,7 +52,7 @@ public class Mappers {
     public static UserDTO mapUserToUserDTO(MyUser user) {
         return new UserDTO(
                 user.getUserID(),
-                user.getFirstName(),
+                user.getUsername(),
                 user.getPassword(),
                 user.getRole(),
                 user.isEnabled()

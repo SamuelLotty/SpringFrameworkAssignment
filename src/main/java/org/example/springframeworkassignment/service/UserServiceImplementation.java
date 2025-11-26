@@ -2,8 +2,12 @@ package org.example.springframeworkassignment.service;
 
 import org.example.springframeworkassignment.dto.Mappers;
 import org.example.springframeworkassignment.dto.UserDTO;
+import org.example.springframeworkassignment.exceptions.NotFoundException;
 import org.example.springframeworkassignment.repositories.UserRepository;
 import org.springframework.stereotype.Service;
+
+import java.nio.channels.NotYetBoundException;
+import java.util.Optional;
 
 @Service
 public class UserServiceImplementation implements UserService {
@@ -22,13 +26,12 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public UserDTO getUserById(int id) {
-
-        return Mappers.mapUserToUserDTO(userRepository.findByUserID(id));
+        return Mappers.mapUserToUserDTO(userRepository.findById(id).orElseThrow(()->new NotFoundException("User not found")));
     }
 
     @Override
     public UserDTO getUserByName(String username) {
-        return Mappers.mapUserToUserDTO(userRepository.findByUserName(username));
+        return Mappers.mapUserToUserDTO(userRepository.findByUsername(username).orElseThrow(()->new NotFoundException("User not found")));
     }
 
     @Override
