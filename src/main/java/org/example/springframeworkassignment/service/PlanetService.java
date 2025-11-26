@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public  interface PlanetService
 {
 
@@ -24,4 +23,3 @@ public  interface PlanetService
 
     List<Planet> getPlanetNameAndMass(String type);
 }
-//
