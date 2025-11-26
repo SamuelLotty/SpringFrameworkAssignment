@@ -26,27 +26,27 @@ public class RestService {
 
     //Ask about Headers = and path =
 
-    @GetMapping(headers = "/", path = "")
+    @GetMapping(path ="/planet/")
     public List<PlanetDTO> getAllPlanets() {
         return planetService.getAllPlanets();
     }
 
-    @GetMapping(path = "/", headers = "")
+    @GetMapping(path = "/moon/")
     public List<MoonDTO> findAll(){
         return  moonService.findAllMoons();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/planet/{id}")
     public Optional<Planet> findPlanetId(@PathVariable("id") int id){
         return planetService.getPlanetById(id);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/moon/{id}")
     public Optional<Moon> findMoonId(@PathVariable("id") int id){
         return moonService.findById(id);
     }
 
-    @DeleteMapping({"/{id}"})
+    @DeleteMapping({"/deletePlanet/{id}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePlanet(@PathVariable("id") int id) throws NotFoundException
     {
