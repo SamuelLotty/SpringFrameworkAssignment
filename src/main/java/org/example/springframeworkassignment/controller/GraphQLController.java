@@ -25,6 +25,11 @@ public class GraphQLController {
         return userService.getUserById(id);
     }
 
+    @QueryMapping
+    public UserDTO getUserByName(@Argument String username) {
+        return userService.getUserByName(username);
+    }
+
     @MutationMapping
     public UserDTO createUser(@Valid @Argument("newUser") NewUserDTO newUserDTO) {
         return userService.createUser(

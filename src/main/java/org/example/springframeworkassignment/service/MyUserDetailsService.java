@@ -19,26 +19,21 @@ public class MyUserDetailsService implements UserDetailsService {
     private UserService userService;
 
     @Override
-    public UserDetails loadUserById(int id) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // Get the user from our database
-        UserDTO myUser = userService.getUserById(id);
+        UserDTO myUser = userService.getUserByName(username);
 
         // Get a datastructure ready to hold the authorities of the user (ADMIN etc)
-        SimpleGrantedAuthority simpleGrantedAuthority =  new SimpleGrantedAuthority(myUser.getRole());
+        SimpleGrantedAuthority simpleGrantedAuthority =  new SimpleGrantedAuthority(myUser.role());
 
         // Create a Spring User object against which Spring authenticates and authorises
         return new User(
-                myUser.getEmail(),
-                myUser.getPassword(),
-                myUser.isEnabled(),
+                myUser.username(),
+                myUser.password(),
+                myUser.enabled(),
                 true,
                 true,
-                myUser.isUnlocked(),
+                true,
                 Collections.singletonList(simpleGrantedAuthority));
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
     }
 }
