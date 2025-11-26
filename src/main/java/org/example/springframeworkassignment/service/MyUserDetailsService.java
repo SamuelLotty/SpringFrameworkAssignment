@@ -1,39 +1,39 @@
-package org.example.springframeworkassignment.service;
-
-import lombok.AllArgsConstructor;
-import org.example.springframeworkassignment.daos.entities.MyUser;
-import org.example.springframeworkassignment.dto.UserDTO;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
-
-import java.util.Collections;
-
-@Service
-@AllArgsConstructor
-public class MyUserDetailsService implements UserDetailsService {
-
-    private UserService userService;
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Get the user from our database
-        UserDTO myUser = userService.getUserByName(username);
-
-        // Get a datastructure ready to hold the authorities of the user (ADMIN etc)
-        SimpleGrantedAuthority simpleGrantedAuthority =  new SimpleGrantedAuthority(myUser.role());
-
-        // Create a Spring User object against which Spring authenticates and authorises
-        return new User(
-                myUser.username(),
-                myUser.password(),
-                myUser.enabled(),
-                true,
-                true,
-                true,
-                Collections.singletonList(simpleGrantedAuthority));
-    }
-}
+//package org.example.springframeworkassignment.service;
+//
+//import lombok.AllArgsConstructor;
+//import org.example.springframeworkassignment.daos.entities.MyUser;
+//import org.example.springframeworkassignment.dto.UserDTO;
+//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.userdetails.User;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.stereotype.Service;
+//
+//import java.util.Collections;
+//
+//@Service
+//@AllArgsConstructor
+//public class MyUserDetailsService implements UserDetailsService {
+//
+//    private UserService userService;
+//    @Override
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//        // Get the user from our database
+//        UserDTO myUser = userService.getUserByName(username);
+//
+//        // Get a datastructure ready to hold the authorities of the user (ADMIN etc)
+//        SimpleGrantedAuthority simpleGrantedAuthority =  new SimpleGrantedAuthority(myUser.role());
+//
+//        // Create a Spring User object against which Spring authenticates and authorises
+//        return new User(
+//                myUser.username(),
+//                myUser.password(),
+//                myUser.enabled(),
+//                true,
+//                true,
+//                true,
+//                Collections.singletonList(simpleGrantedAuthority));
+//    }
+//}

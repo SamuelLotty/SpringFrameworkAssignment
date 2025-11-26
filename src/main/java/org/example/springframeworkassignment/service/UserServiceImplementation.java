@@ -24,10 +24,6 @@ public class UserServiceImplementation implements UserService {
 //    }
 
 
-    @Override
-    public UserDTO getUserById(String id) {
-        return Mappers.mapUserToUserDTO(userRepository.findById(id).orElseThrow(()->new NotFoundException("User not found")));
-    }
 
     @Override
     public UserDTO getUserByName(String username) {

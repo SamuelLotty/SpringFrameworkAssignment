@@ -20,10 +20,6 @@ public class GraphQLController {
 //    private final PlanetService planetService;
     private final UserService userService;
 
-    @QueryMapping
-    public UserDTO getUserById(@Argument String id) {
-        return userService.getUserById(id);
-    }
 
     @QueryMapping
     public UserDTO getUserByName(@Argument String username) {

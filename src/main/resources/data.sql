@@ -9,12 +9,12 @@ INSERT INTO Planet (name, type, radius_km, mass_kg, orbital_period_days) VALUES
                                                                              ('Uranus', 'Ice Giant', 25362, 868100000, 30687),
                                                                              ('Neptune', 'Ice Giant', 24622, 10240000, 60190);
 
--- -- Populate User table
--- INSERT INTO MyUser (username, password, role, enabled) VALUES
---                                                          ('stan', 'stanPass', 'ROLE_ADMIN', 1),
---                                                          ('bob', 'bobPass', 'ROLE_USER', 0),
---                                                          ('kevin', 'kevinPass', 'ROLE_USER', 0),
---                                                          ('alex', 'alexPass', 'ROLE_USER', 0);
+-- Populate User table
+INSERT INTO MY_USER (username, password, role, enabled) VALUES
+                                                         ('stan', 'stanPass', 'ROLE_ADMIN', 1),
+                                                         ('bob', 'bobPass', 'ROLE_USER', 0),
+                                                         ('kevin', 'kevinPass', 'ROLE_USER', 0),
+                                                         ('alex', 'alexPass', 'ROLE_USER', 0);
 
 -- Populate Moon table
 INSERT INTO Moon (name, diameter_km, orbital_period_days, planet_id) VALUES
