@@ -9,7 +9,7 @@ import java.util.Optional;
 public  interface PlanetService
 {
 
-    Planet AddNewPlanet(Planet planet);
+    Planet AddNewPlanet(Planet planet); //TODO
 
     List<PlanetDTO> getAllPlanets();
 
@@ -21,5 +21,5 @@ public  interface PlanetService
 
     List<PlanetDTO> getPlanetsByType(String type);
 
-    List<PlanetDTO> getPlanetNameAndMass(String type);
+    List<PlanetDTO> getPlanetNameAndMass(String type); //TODO
 }

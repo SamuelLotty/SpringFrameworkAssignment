@@ -11,10 +11,10 @@ INSERT INTO Planet (name, type, radius_km, mass_kg, orbital_period_days) VALUES
 
 -- Populate User table
 INSERT INTO MY_USER (username, password, role, enabled) VALUES
-                                                         ('stan', 'stanPass', 'ROLE_ADMIN', 1),
-                                                         ('bob', 'bobPass', 'ROLE_USER', 0),
-                                                         ('kevin', 'kevinPass', 'ROLE_USER', 0),
-                                                         ('alex', 'alexPass', 'ROLE_USER', 0);
+                                                         ('stan', 'stan', 'ROLE_ADMIN', 1),
+                                                         ('bob', 'bob', 'ROLE_USER', 0),
+                                                         ('kevin', 'kevin', 'ROLE_USER', 0),
+                                                         ('alex', 'alex', 'ROLE_USER', 0);
 
 -- Populate Moon table
 INSERT INTO Moon (name, diameter_km, orbital_period_days, planet_id) VALUES

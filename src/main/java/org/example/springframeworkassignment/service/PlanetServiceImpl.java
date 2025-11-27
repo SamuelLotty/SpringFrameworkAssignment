@@ -64,7 +64,7 @@ public class PlanetServiceImpl implements PlanetService {
 
     @Override
     public List<PlanetDTO> getPlanetNameAndMass(String type) {
-        return null;
+        return null; //TODO
     }
 
 
