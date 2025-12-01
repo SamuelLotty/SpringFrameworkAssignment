@@ -1,7 +1,6 @@
 package org.example.springframeworkassignment;
 
 import org.example.springframeworkassignment.repositories.MoonRepository;
-import org.example.springframeworkassignment.service.MoonService;
 import org.example.springframeworkassignment.service.PlanetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

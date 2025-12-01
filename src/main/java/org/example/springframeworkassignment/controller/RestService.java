@@ -6,11 +6,9 @@ import lombok.AllArgsConstructor;
 import org.example.springframeworkassignment.daos.entities.Planet;
 import org.example.springframeworkassignment.dto.MoonDTO;
 import org.example.springframeworkassignment.dto.PlanetDTO;
-import org.example.springframeworkassignment.dto.UserDTO;
 import org.example.springframeworkassignment.exceptions.NotFoundException;
 import org.example.springframeworkassignment.service.MoonService;
 import org.example.springframeworkassignment.service.PlanetService;
-import org.example.springframeworkassignment.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,9 +22,6 @@ import java.util.Optional;
 public class RestService {
     private MoonService moonService;
     private PlanetService planetService;
-    //private UserService userService;
-
-    //Ask about Headers = and path =
     @Operation(summary = "Lists all planets",description = "Retrieve a list of all planets within the database")
     @GetMapping("/planets")
     public List<PlanetDTO> getAllPlanets() {

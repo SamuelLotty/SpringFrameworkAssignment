@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.example.springframeworkassignment.daos.entities.MyUser;
 import org.example.springframeworkassignment.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 

@@ -14,10 +14,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 @AllArgsConstructor
 public class GraphQLController {
-    //Probably wont need these, we'll just add them in a RestController, much better.
-    //Assignmnet only asks of findign and creating anyways...
-//    private final MoonService moonService;
-//    private final PlanetService planetService;
     private final UserService userService;
 
 

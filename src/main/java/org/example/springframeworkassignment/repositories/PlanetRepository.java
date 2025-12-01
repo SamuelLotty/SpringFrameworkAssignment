@@ -1,7 +1,6 @@
 package org.example.springframeworkassignment.repositories;
 
 import org.example.springframeworkassignment.daos.entities.Planet;
-import org.example.springframeworkassignment.dto.PlanetDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
