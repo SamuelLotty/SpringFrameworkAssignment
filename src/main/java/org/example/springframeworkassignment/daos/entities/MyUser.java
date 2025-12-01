@@ -9,7 +9,6 @@ import lombok .*;
 @AllArgsConstructor
 public class MyUser {
 
-
     @Id
     @Column(name="username",nullable=false)
     private String username;

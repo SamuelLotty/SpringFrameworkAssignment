@@ -32,7 +32,6 @@ public class GraphQLController {
                 newUserDTO.username(),
                 newUserDTO.password(),
                 newUserDTO.role()
-
         );
 
     }

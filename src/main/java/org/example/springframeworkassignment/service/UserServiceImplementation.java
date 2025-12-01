@@ -1,6 +1,8 @@
 package org.example.springframeworkassignment.service;
 
 import lombok.AllArgsConstructor;
+import org.apache.catalina.User;
+import org.example.springframeworkassignment.daos.entities.MyUser;
 import org.example.springframeworkassignment.dto.Mappers;
 import org.example.springframeworkassignment.dto.UserDTO;
 import org.example.springframeworkassignment.exceptions.NotFoundException;
@@ -21,7 +23,11 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public UserDTO createUser(String username, String password, String role) {
-        //TODO
-        return null;
+        MyUser user = new MyUser();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setRole(role);
+        MyUser saved = userRepository.save(user);
+        return Mappers.mapUserToUserDTO(saved);
     }
 }

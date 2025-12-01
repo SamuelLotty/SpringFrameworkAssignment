@@ -1,24 +1,20 @@
 type Query {
-    userById(userID: Int!): MyUser
-    allUsers: [MyUser]
+    getUserByName(username: String!): MyUser
+    allUsers: [MyUser!]!
 }
 
 type MyUser {
-    userID: Int
-    firstName: String
-    password: String
-    role: String
-    enabled: Boolean
+    username: String!
+    role: String!
+    enabled: Boolean!  
 }
 
 input NewUserInput {
-    firstName: String!
+    username: String!
     password: String!
     role: String!
-    enabled: Boolean!
-
 }
 
-type Mutation{
-       createUser(newUser: NewUserInput!): MyUser
+type Mutation {
+    createUser(newUser: NewUserInput!): MyUser!
 }
