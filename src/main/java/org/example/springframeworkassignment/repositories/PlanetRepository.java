@@ -16,7 +16,7 @@ public interface PlanetRepository extends JpaRepository<Planet, Integer> {
     List<Planet> findPlanetByPlanetType(String planetType);
 
     @Query("Select p.planetName, p.massKG FROM Planet p")
-    List<Object[]> findPlanetNameAndMass();
+    List<Object[]> findPlanetNameAndMass(); //TODO
 
     @Modifying
     @Transactional
