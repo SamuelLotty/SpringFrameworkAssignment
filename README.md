@@ -1,10 +1,10 @@
-# Spring Framework Assignment
+# Spring Framework
 
 A Spring Boot application demonstrating a **modular, layered architecture**, with **REST** and **GraphQL** endpoints, **authentication**, and centralized **exception handling**.
 
 ## About
 
-This project is an assignment built as part of a development frameworks course. The goal is to showcase a well-structured Spring Boot backend application using modern development practices. It combines:
+The goal is to showcase a well-structured Spring Boot backend application using modern development practices. It combines:
 
 - RESTful web services  
 - GraphQL API  
