@@ -2,26 +2,6 @@
 
 A Spring Boot application demonstrating a **modular, layered architecture**, with **REST** and **GraphQL** endpoints, **authentication**, and centralized **exception handling**.
 
----
-
-## Table of Contents
-
-- [About](#about)  
-- [Features](#features)  
-- [Architecture](#architecture)  
-- [Tech Stack](#tech-stack)  
-- [Usage](#usage)  
-  - [REST API](#rest-api)  
-  - [GraphQL API](#graphql-api)  
-- [Exception Handling](#exception-handling)  
-- [Security](#security)  
-- [Testing](#testing)  
-- [Contributing](#contributing)  
-- [Authors](#authors)  
-- [License](#license)
-
----
-
 ## About
 
 This project is an assignment built as part of a development frameworks course. The goal is to showcase a well-structured Spring Boot backend application using modern development practices. It combines:
@@ -30,7 +10,8 @@ This project is an assignment built as part of a development frameworks course. 
 - GraphQL API  
 - Authentication (e.g., JWT / Spring Security)  
 - Exception handling  
-- Clean, layered architecture (controller, service, repository)  
+- Clean, layered architecture (controller, service, repository)
+- Security Layer
 
 ---
 
@@ -48,7 +29,7 @@ This project is an assignment built as part of a development frameworks course. 
 
 ## Architecture
 
-The application follows a **layered architecture**, which is a best practice in Spring Boot development. :contentReference[oaicite:0]{index=0}  
+The application follows a **layered architecture**, which is a best practice in Spring Boot development. 
 
 Here is a breakdown of the layers:
 
@@ -61,7 +42,9 @@ Here is a breakdown of the layers:
 3. **Repository / Data Layer**  
    - Interfaces with the database (e.g., via Spring Data JPA)  
 4. **Exception Layer**  
-   - Centralized handling of exceptions via `@ControllerAdvice`  
+   - Centralized handling of exceptions via `@ControllerAdvice`
+5. **Security Layer**
+   - Security Layer with user access.
 
 This layered structure improves maintainability, testability, and separation of concerns. :contentReference[oaicite:1]{index=1}  
 
@@ -83,7 +66,7 @@ This layered structure improves maintainability, testability, and separation of 
 
 - Java JDK (e.g., Java 11 or later)  
 - Maven
-- 
+
 ### Installation
 
 1. Clone the repository:  
