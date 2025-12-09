@@ -5,6 +5,7 @@ import org.example.springframeworkassignment.daos.entities.Moon;
 import org.example.springframeworkassignment.daos.entities.Planet;
 import org.example.springframeworkassignment.dto.Mappers;
 import org.example.springframeworkassignment.dto.MoonDTO;
+import org.example.springframeworkassignment.exceptions.NotFoundException;
 import org.example.springframeworkassignment.repositories.MoonRepository;
 import org.example.springframeworkassignment.repositories.PlanetRepository;
 import org.springframework.http.HttpStatus;
@@ -27,7 +28,7 @@ public class MoonServiceImpl implements MoonService {
 
         int planetId = moonDTO.planetId();
         Planet planet = planetRepository.findById(planetId)
-                .orElseThrow(() -> new RuntimeException("Planet not found with id: " + planetId));
+                .orElseThrow(() -> new NotFoundException("Planet not found with id: " + planetId));
 
         moon.setPlanet(planet);
         Moon savedMoon = moonRepository.save(moon);
@@ -69,7 +70,10 @@ public class MoonServiceImpl implements MoonService {
     }
 
     @Override
-    public int countByPlanet(Planet planet) {
+    public int countByPlanet(int planetId) {
+        Planet planet = planetRepository.findById(planetId)
+                .orElseThrow(() -> new NotFoundException("Planet not found with id: " + planetId));
+
         return moonRepository.countByPlanet(planet);
     }
 }

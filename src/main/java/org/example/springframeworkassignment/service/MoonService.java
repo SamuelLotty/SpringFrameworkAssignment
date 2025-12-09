@@ -8,12 +8,12 @@ import java.util.List;
 
 public interface MoonService
 {
-    MoonDTO save (MoonDTO moonDTO); //TODO
+    MoonDTO save (MoonDTO moonDTO);
     List<MoonDTO> findAllMoons();
     void  deleteById(int moonId);
     List<MoonDTO> findAllByPlanet(int planetId);
     MoonDTO findById(int moonId);
-    int countByPlanet(Planet planet); //TODO
+    int countByPlanet(int planetId);
 }
 
 // REPORT SHOULD REFLECT UNDERSTANDING OF SPRING

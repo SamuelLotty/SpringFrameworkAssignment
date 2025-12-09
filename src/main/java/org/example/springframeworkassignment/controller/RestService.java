@@ -93,6 +93,12 @@ public class RestService {
     public List<PlanetDTO> getPlanetsByType(@RequestParam("type") String type){
         return planetService.getPlanetsByType(type);
     }
+    @GetMapping("/planets/moons/count")
+    public int countMoonsByPlanet(@RequestParam("id") int id) {
+        return moonService.countByPlanet(id);
+    }
+
+
    /* @Operation(summary = "Create a new user" , description = "This allows for a user to be created")
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
