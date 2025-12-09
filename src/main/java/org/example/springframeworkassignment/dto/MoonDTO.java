@@ -5,8 +5,7 @@ public record MoonDTO(
         String moonName,
         int diameterKM,
         int orbitalDays,
-        PlanetDTO planet
-
-) {
+        int planetId
+        ) {
 }
 

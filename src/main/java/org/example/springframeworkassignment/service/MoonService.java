@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface MoonService
 {
-    Moon save (Moon moon); //TODO
+    MoonDTO save (MoonDTO moonDTO); //TODO
     List<MoonDTO> findAllMoons();
     void  deleteById(int moonId);
     List<MoonDTO> findAllByPlanet(int planetId);

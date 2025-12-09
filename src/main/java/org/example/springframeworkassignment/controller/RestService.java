@@ -3,6 +3,7 @@ package org.example.springframeworkassignment.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
+import org.example.springframeworkassignment.daos.entities.Moon;
 import org.example.springframeworkassignment.daos.entities.Planet;
 import org.example.springframeworkassignment.dto.MoonDTO;
 import org.example.springframeworkassignment.dto.PlanetDTO;
@@ -21,6 +22,19 @@ import java.util.Optional;
 public class RestService {
     private MoonService moonService;
     private PlanetService planetService;
+
+
+    @PostMapping("/planets")
+    @ResponseStatus(HttpStatus.CREATED)
+    public PlanetDTO createPlanet(@RequestBody PlanetDTO planetDTO) {
+        return planetService.AddNewPlanet(planetDTO);
+    }
+
+    @PostMapping("/moons")
+    @ResponseStatus(HttpStatus.CREATED)
+    public MoonDTO createMoon(@RequestBody MoonDTO moonDTO) {
+        return moonService.save(moonDTO);
+    }
 
     @Operation(summary = "Lists all planets",description = "Retrieve a list of all planets within the database")
     @GetMapping("/planets")

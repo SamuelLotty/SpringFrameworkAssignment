@@ -18,13 +18,14 @@ import java.util.Optional;
 @AllArgsConstructor
 public class PlanetServiceImpl implements PlanetService {
 
-    @Autowired
     private PlanetRepository planetRepository;
 
 
     @Override
-    public Planet AddNewPlanet(Planet planet) {
-        return planetRepository.save(planet);
+    public PlanetDTO AddNewPlanet(PlanetDTO planetDTO) {
+        Planet planet = Mappers.mapPlanetDTOToPlanet(planetDTO);
+        Planet saved = planetRepository.save(planet);
+        return Mappers.mapPlanetToPlanetDTO(saved);
     }
 
     @Override

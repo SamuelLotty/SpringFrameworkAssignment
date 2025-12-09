@@ -22,8 +22,16 @@ public class MoonServiceImpl implements MoonService {
     private MoonRepository moonRepository;
 
     @Override
-    public Moon save(Moon moon) {
-        return  moonRepository.save(moon);
+    public MoonDTO save(MoonDTO moonDTO) {
+        Moon moon = Mappers.mapMoonDTOToMoon(moonDTO);
+
+        int planetId = moonDTO.planetId();
+        Planet planet = planetRepository.findById(planetId)
+                .orElseThrow(() -> new RuntimeException("Planet not found with id: " + planetId));
+
+        moon.setPlanet(planet);
+        Moon savedMoon = moonRepository.save(moon);
+        return Mappers.mapMoonToMoonDTO(savedMoon);
     }
 
     @Override

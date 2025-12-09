@@ -14,17 +14,7 @@ public class Mappers {
                 moon.getMoonName(),
                 moon.getDiameterKM(),
                 moon.getOrbitalPeriodDays(),
-                new PlanetDTO(
-                        moon.getPlanet().getPlanetID(),
-                        moon.getPlanet().getPlanetName(),
-                        moon.getPlanet().getPlanetType(),
-                        moon.getPlanet().getRadiusKM(),
-                        moon.getPlanet().getMassKG(),
-                        moon.getPlanet().getOrbitalPeriodDays(),
-                        null
-                )
-                //mapPlanetToPlanetDTO(moon.getPlanet())
-
+                moon.getPlanet().getPlanetID()
         );
 
     }
@@ -47,6 +37,14 @@ public class Mappers {
 
         );
 
+    }
+    public static Moon mapMoonDTOToMoon(MoonDTO dto) {
+        Moon moon = new Moon();
+        moon.setMoonId(dto.moonId());
+        moon.setMoonName(dto.moonName());
+        moon.setDiameterKM(dto.diameterKM());
+        moon.setOrbitalPeriodDays(dto.orbitalDays());
+        return moon;
     }
     public static Planet mapPlanetDTOToPlanet(PlanetDTO dto) {
         Planet planet = new Planet();
