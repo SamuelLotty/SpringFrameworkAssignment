@@ -79,14 +79,11 @@ public class RestService {
     public List<PlanetDTO> getPlanetsByType(@RequestParam("type") String type){
         return planetService.getPlanetsByType(type);
     }
-   /* @Operation(summary = "Create a new user" , description = "This allows for a user to be created")
-    @PostMapping("/users")
-    @ResponseStatus(HttpStatus.CREATED)
-    public UserDTO createUser(@RequestBody UserDTO userDTO) {
-        return userService.createUser(
-                userDTO.username(),
-                userDTO.password(),
-                userDTO.role()
-        );
-    }*/
+
+// FOLLOWING REQUIRE ENDPOINTS , implementation already there.
+    //TODO INTRODUCE Moon save (Moon moon);
+    // TODO  int countByPlanet(Planet planet);
+    // TODO   Planet AddNewPlanet(Planet planet);
+    // TODO  List<PlanetDTO> getPlanetNameAndMass(String type); // THIS REQUIRES IMPLEMENTATION AS WELL
+
 }
