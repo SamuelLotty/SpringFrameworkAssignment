@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.example.springframeworkassignment.daos.entities.Planet;
 import org.example.springframeworkassignment.dto.Mappers;
 import org.example.springframeworkassignment.dto.PlanetDTO;
+import org.example.springframeworkassignment.dto.PlanetNameMassDTO;
 import org.example.springframeworkassignment.repositories.PlanetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -62,12 +63,9 @@ public class PlanetServiceImpl implements PlanetService {
         return planetRepository.findPlanetByPlanetType(type).stream().map(Mappers::mapPlanetToPlanetDTO).toList();
     }
 
-
     @Override
-    public List<PlanetDTO> getPlanetNameAndMass(String type) {
-        return null; //TODO
+    public List<PlanetNameMassDTO> getPlanetNameAndMass() {
+    return planetRepository.findPlanetNameAndMass();
     }
-
-
 
 }

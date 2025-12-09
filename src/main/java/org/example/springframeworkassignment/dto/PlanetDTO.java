@@ -10,6 +10,4 @@ public record PlanetDTO (
         int massKG,
         int orbitalPeriodDays,
         List<MoonDTO> moon
-
 ){};
-

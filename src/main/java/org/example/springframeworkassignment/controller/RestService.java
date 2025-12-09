@@ -1,12 +1,11 @@
 package org.example.springframeworkassignment.controller;
 
-
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
-import org.example.springframeworkassignment.daos.entities.Moon;
 import org.example.springframeworkassignment.daos.entities.Planet;
 import org.example.springframeworkassignment.dto.MoonDTO;
 import org.example.springframeworkassignment.dto.PlanetDTO;
+import org.example.springframeworkassignment.dto.PlanetNameMassDTO;
 import org.example.springframeworkassignment.exceptions.NotFoundException;
 import org.example.springframeworkassignment.service.MoonService;
 import org.example.springframeworkassignment.service.PlanetService;
@@ -22,7 +21,6 @@ import java.util.Optional;
 public class RestService {
     private MoonService moonService;
     private PlanetService planetService;
-
 
     @PostMapping("/planets")
     @ResponseStatus(HttpStatus.CREATED)
@@ -72,9 +70,7 @@ public class RestService {
     @DeleteMapping({"/moons/{id}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteMoon(@PathVariable("id") int id) throws NotFoundException
-    {
-        moonService.deleteById(id);
-    }
+    {moonService.deleteById(id);}
 
     @Operation(summary = "Update details of planet",description = "Updates details of a specific planet based on ID")
     @PatchMapping({"/planets"})
@@ -98,15 +94,10 @@ public class RestService {
         return moonService.countByPlanet(id);
     }
 
+    @Operation(summary= "Retrieve planet name and mass only", description = "get a list of all planets just giving their mass and planet name")
+    @GetMapping("/planets/name-mass")
+    public List<PlanetNameMassDTO> getPlanetsByName(){
+        return planetService.getPlanetNameAndMass();
+    }
 
-   /* @Operation(summary = "Create a new user" , description = "This allows for a user to be created")
-    @PostMapping("/users")
-    @ResponseStatus(HttpStatus.CREATED)
-    public UserDTO createUser(@RequestBody UserDTO userDTO) {
-        return userService.createUser(
-                userDTO.username(),
-                userDTO.password(),
-                userDTO.role()
-        );
-    }*/
 }

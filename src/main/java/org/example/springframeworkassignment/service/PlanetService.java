@@ -2,13 +2,15 @@ package org.example.springframeworkassignment.service;
 
 import org.example.springframeworkassignment.daos.entities.Planet;
 import org.example.springframeworkassignment.dto.PlanetDTO;
+import org.example.springframeworkassignment.dto.PlanetNameMassDTO;
+
 import java.util.List;
 import java.util.Optional;
 
 public  interface PlanetService
 {
 
-    PlanetDTO AddNewPlanet(PlanetDTO planetDTO); //TODO
+    PlanetDTO AddNewPlanet(PlanetDTO planetDTO);
 
     List<PlanetDTO> getAllPlanets();
 
@@ -20,5 +22,5 @@ public  interface PlanetService
 
     List<PlanetDTO> getPlanetsByType(String type);
 
-    List<PlanetDTO> getPlanetNameAndMass(String type); //TODO
+    List<PlanetNameMassDTO> getPlanetNameAndMass();
 }
