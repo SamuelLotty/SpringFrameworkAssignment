@@ -7,7 +7,20 @@ import org.example.springframeworkassignment.daos.entities.Planet;
 import java.util.List;
 
 public class Mappers {
-    //moon to moon dto
+
+    public static Moon mapMoonDTOtoMoon(MoonDTO moonDTO) {
+        Moon moon = new Moon();
+        moon.setMoonName(moonDTO.moonName());
+        moon.setMoonId(moonDTO.moonId());
+        moon.setDiameterKM(moonDTO.diameterKM());
+        moon.setOrbitalPeriodDays(moonDTO.orbitalDays());
+
+        Planet planet = new Planet();
+        planet.setPlanetID(moonDTO.planet().planetID());
+        moon.setPlanet(planet);
+        return moon;
+    }
+
     public static MoonDTO mapMoonToMoonDTO(Moon moon){
         return new MoonDTO(
                 moon.getMoonId(),
@@ -30,8 +43,9 @@ public class Mappers {
     }
     //planet to planet dto
     public static PlanetDTO  mapPlanetToPlanetDTO(Planet planet){
-        List<MoonDTO> moonDTOS =
-                planet.getMoon()
+        List<MoonDTO> moonDTOS = (planet.getMoon() == null)
+                ? List.of()
+                : planet.getMoon()
                         .stream()
                         .map(Mappers::mapMoonToMoonDTO)
                         .toList();

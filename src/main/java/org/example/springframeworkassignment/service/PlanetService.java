@@ -8,7 +8,7 @@ import java.util.Optional;
 public  interface PlanetService
 {
 
-    Planet AddNewPlanet(Planet planet); //TODO
+    PlanetDTO addNewPlanet(PlanetDTO planetDTO); //TODO
 
     List<PlanetDTO> getAllPlanets();
 

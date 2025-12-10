@@ -3,6 +3,7 @@ package org.example.springframeworkassignment.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
+import org.example.springframeworkassignment.daos.entities.Moon;
 import org.example.springframeworkassignment.daos.entities.Planet;
 import org.example.springframeworkassignment.dto.MoonDTO;
 import org.example.springframeworkassignment.dto.PlanetDTO;
@@ -81,9 +82,26 @@ public class RestService {
     }
 
 // FOLLOWING REQUIRE ENDPOINTS , implementation already there.
-    //TODO INTRODUCE Moon save (Moon moon);
-    // TODO  int countByPlanet(Planet planet);
-    // TODO   Planet AddNewPlanet(Planet planet);
+
+
+    @Operation(summary = "Save Moon", description = "Save moon to database.")
+    @PostMapping("/moons/entity")
+    @ResponseStatus(HttpStatus.CREATED)
+    public MoonDTO saveMoon(@RequestBody MoonDTO moonDTO) {
+        return moonService.save(moonDTO);
+    }
+
+    // TODO  int countByPlanet(Planet planet); ?? point of this is what
+
+
+    @Operation(summary = "Add new planet", description = "Adds new planet to the database)")
+    @PostMapping("/planets")
+    @ResponseStatus(HttpStatus.CREATED)
+    public PlanetDTO addNewPlanet(@RequestBody PlanetDTO planetDTO){
+        return planetService.addNewPlanet(planetDTO);
+    }
+
+
     // TODO  List<PlanetDTO> getPlanetNameAndMass(String type); // THIS REQUIRES IMPLEMENTATION AS WELL
 
 }

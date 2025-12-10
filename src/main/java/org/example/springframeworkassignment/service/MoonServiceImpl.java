@@ -5,6 +5,7 @@ import org.example.springframeworkassignment.daos.entities.Moon;
 import org.example.springframeworkassignment.daos.entities.Planet;
 import org.example.springframeworkassignment.dto.Mappers;
 import org.example.springframeworkassignment.dto.MoonDTO;
+import org.example.springframeworkassignment.dto.PlanetDTO;
 import org.example.springframeworkassignment.repositories.MoonRepository;
 import org.example.springframeworkassignment.repositories.PlanetRepository;
 import org.springframework.http.HttpStatus;
@@ -22,8 +23,8 @@ public class MoonServiceImpl implements MoonService {
     private MoonRepository moonRepository;
 
     @Override
-    public Moon save(Moon moon) {
-        return  moonRepository.save(moon);
+    public MoonDTO save(MoonDTO moonDTO) {
+        return  Mappers.mapMoonToMoonDTO(moonRepository.save(Mappers.mapMoonDTOtoMoon(moonDTO)));
     }
 
     @Override
