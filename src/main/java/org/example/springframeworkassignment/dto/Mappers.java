@@ -16,7 +16,7 @@ public class Mappers {
         moon.setOrbitalPeriodDays(moonDTO.orbitalDays());
 
         Planet planet = new Planet();
-        planet.setPlanetID(moonDTO.planet().planetID());
+        planet.setPlanetID(moonDTO.planetId());
         moon.setPlanet(planet);
         return moon;
     }

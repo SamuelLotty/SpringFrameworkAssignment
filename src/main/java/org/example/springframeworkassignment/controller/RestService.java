@@ -22,17 +22,7 @@ public class RestService {
     private MoonService moonService;
     private PlanetService planetService;
 
-    @PostMapping("/planets")
-    @ResponseStatus(HttpStatus.CREATED)
-    public PlanetDTO createPlanet(@RequestBody PlanetDTO planetDTO) {
-        return planetService.AddNewPlanet(planetDTO);
-    }
 
-    @PostMapping("/moons")
-    @ResponseStatus(HttpStatus.CREATED)
-    public MoonDTO createMoon(@RequestBody MoonDTO moonDTO) {
-        return moonService.save(moonDTO);
-    }
 
     @Operation(summary = "Lists all planets",description = "Retrieve a list of all planets within the database")
     @GetMapping("/planets")
@@ -99,5 +89,28 @@ public class RestService {
     public List<PlanetNameMassDTO> getPlanetsByName(){
         return planetService.getPlanetNameAndMass();
     }
+
+    @Operation(summary = "Save Moon", description = "Save moon to database.")
+    @PostMapping("/moons/entity")
+    @ResponseStatus(HttpStatus.CREATED)
+    public MoonDTO saveMoon(@RequestBody MoonDTO moonDTO) {
+        return moonService.save(moonDTO);
+    }
+    @Operation(summary = "Create Moon", description = "Creates moon in the  database.")
+    @PostMapping("/moons")
+    @ResponseStatus(HttpStatus.CREATED)
+    public MoonDTO createMoon(@RequestBody MoonDTO moonDTO) {
+        return moonService.save(moonDTO);
+    }
+
+    @Operation(summary = "Create Planet", description = "Creates planet in database.")
+    @PostMapping("/planets")
+    @ResponseStatus(HttpStatus.CREATED)
+    public PlanetDTO createPlanet(@RequestBody PlanetDTO planetDTO) {
+        return planetService.AddNewPlanet(planetDTO);
+    }
+
+
+
 
 }
